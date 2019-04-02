@@ -15,7 +15,8 @@ test: tester2.o Tree.o Node.o
 TreeTest.o: badkan.hpp Tree.hpp Node.hpp layout.hpp
 tester2.o: badkan.hpp Tree.hpp Node.hpp layout.hpp
 test1.o: badkan.hpp Tree.hpp Node.hpp layout.hpp
-Node.o: Node.hpp 
+Node.o: Node.cpp Node.hpp
+	clang++-6.0 -std=c++17 --compile Node.cpp -o Node.o
 Tree.o: Node.hpp Tree.hpp
 
 
