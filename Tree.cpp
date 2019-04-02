@@ -10,7 +10,7 @@
 
 using namespace ariel;
 
-void Tree::insert(int value){
+void ariel::Tree::insert(int value){
     Node* y = NULL;
     Node* x = _root;
     Node* z = new Node(value);
@@ -39,7 +39,7 @@ void Tree::insert(int value){
 }
 
 
-void Tree::transplant(Node* u, Node* v){
+void ariel::Tree::transplant(Node* u, Node* v){
     if(u->getParent()==NULL)
     _root=v;
     else if(u==u->getParent()->getLeft())
@@ -50,7 +50,7 @@ void Tree::transplant(Node* u, Node* v){
     v->setParent(u->getParent());
 }
 
-Node* Tree::findNode(int i){
+Node* ariel::Tree::findNode(int i){
       Node* temp = _root;
       while(temp!=NULL && temp->getValue()!=i){
           if(temp->getValue()>i)
@@ -62,7 +62,7 @@ Node* Tree::findNode(int i){
     }
 
 
-void Tree::remove(int i){
+void ariel::Tree::remove(int i){
     Node* z = findNode(i);
     if(z!=NULL){
     _size--;
@@ -88,7 +88,7 @@ void Tree::remove(int i){
     print2D(_root);
 }
 
-int Tree::parent(int i){
+int ariel::Tree::parent(int i){
     Node* x = findNode(i);
     if(x==NULL)
     throw "No node with that value";
@@ -99,7 +99,7 @@ int Tree::parent(int i){
     return y->getValue();
 }
 
-int Tree::left(int i){
+int ariel::Tree::left(int i){
     Node* x = findNode(i);
     if(x==NULL)
     throw "No node with that value";
@@ -111,7 +111,7 @@ int Tree::left(int i){
 }
 
 
-int Tree::right(int i){
+int ariel::Tree::right(int i){
     Node* x = findNode(i);
     if(x==NULL)
     throw "No node with that value";
@@ -123,12 +123,12 @@ int Tree::right(int i){
 }
 
 
-int Tree::size(){
+int ariel::Tree::size(){
     print2D(_root);
     return _size;
 }
 
-int Tree::contains(int i){
+int ariel::Tree::contains(int i){
     print2D(_root);
     Node* x = findNode(i);
     if(x==NULL)
@@ -136,7 +136,7 @@ int Tree::contains(int i){
     else return 1;
 }
 
-string Tree::print(){
+string ariel::Tree::print(){
     string str="";
     if(_root!=NULL)
     return _root->print(str);
@@ -144,17 +144,17 @@ string Tree::print(){
 }
 
 
-Tree::Tree() {
+ariel::Tree::Tree() {
     _root = NULL;
     _size=0;
 }
 
-Tree::Tree(int x) {
+ariel::Tree::Tree(int x) {
     _root = new Node(x);
     _size=0;
 }
 
-Tree::Tree(Node* node){
+ariel::Tree::Tree(Node* node){
     _root = node;
     _size=0;
 }

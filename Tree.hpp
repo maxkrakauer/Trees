@@ -8,7 +8,7 @@
  using namespace std;
 
 
-namespace ariel{
+ namespace ariel{
 
 class Tree {
 
@@ -61,5 +61,4 @@ class Tree {
   Tree(int i);
 
 };
-
-}
+ }
