@@ -1,4 +1,5 @@
 
+
 #include "Tree.hpp"
 #include "layout.hpp"
 #include <stdio.h>
@@ -6,7 +7,7 @@
 #include <iostream>
 #include <string> 
 
-   using namespace std;
+using namespace std;
 
 using namespace ariel;
 

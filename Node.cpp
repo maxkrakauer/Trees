@@ -9,6 +9,7 @@
 using namespace std;
 
 
+
 void Node::setLeft(Node* left) {
     Node*x = this;
     if(x==NULL)
@@ -59,7 +60,7 @@ void Node::remove(){
  }
 
 
-Node* Node::minimum(){
+Node*::Node::minimum(){
     Node* x = this;
     if (x==NULL)
     throw "no node and therefore no minimum";

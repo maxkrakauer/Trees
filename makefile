@@ -1,24 +1,25 @@
 #!make -f
 
-
-
-
-demo: TreeTest.o Tree.o Node.o
+demo: Node.o Tree.o TreeTest.o 
 	clang++-6.0 -std=c++17 $^ -o demo
 
-test: tester2.o Tree.o Node.o
+test: Node.o Tree.o tester2.o 
 	clang++-6.0 -std=c++17 $^ -o test
 
 %.o: %.cpp
 	clang++-6.0 -std=c++17 --compile $< -o $@
 
-TreeTest.o: badkan.hpp Tree.hpp Node.hpp layout.hpp
-tester2.o: badkan.hpp Tree.hpp Node.hpp layout.hpp
-test1.o: badkan.hpp Tree.hpp Node.hpp layout.hpp
-Node.o: Node.cpp Node.hpp
-	clang++-6.0 -std=c++17 --compile Node.cpp -o Node.o
-Tree.o: Tree.cpp Node.hpp Node.cpp Tree.hpp
-    
+TreeTest.o: Tree.hpp TreeTest.cpp badkan.hpp
+	clang++-6.0 -std=c++17 --compile TreeTest.cpp -o TreeTest.o
 
+tester2.o: Tree.hpp tester2.cpp badkan.hpp
+	clang++-6.0 -std=c++17 --compile tester2.cpp -o tester2.o
+
+Tree.o: Tree.cpp Node.hpp layout.hpp
+	clang++-6.0 -std=c++17 --compile Tree.cpp -o Tree.o	
+
+Node.o: Node.cpp
+	clang++-6.0 -std=c++17 --compile Node.cpp -o Node.o
+	
 clean:
-	rm -f *.o demo test
+	m -f *.o demo test
